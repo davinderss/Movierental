@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+
+{% block content %}
+
+<h1>List and Search all Customers.</h1>
+
+<form  method="GET" action="{% url 'searchcust' %}">
+	<div style="float:right" ><input  value="{{request.GET.q}}"  name="q" placeholder="search..">
+	<button  class="" type="submit">Search</button></div>
+ <br>
+ <br>
+ <table style="width:100%" >
+  <tr>
+    <th>First Name</th>
+    <th>Last Name</th> 
+    <th>Date of Birth</th>
+    <th>Phone Number</th>
+    <th>Address</th>
+    <th>Delete Customer</th>
+    <th>Update Customer</th> 
+
+  </tr>
+  {% for obj in results %}
+  <tr>
+    <td>{{obj.fname}}</td>
+    <td>{{obj.lname}}</td> 
+    <td>{{obj.birthdate}}</td>
+    <td>{{obj.pnumber}}</td>
+    <td>{{obj.address}}</td>
+   <td> <a href ="{% url 'delcust' obj.id %}">Delete</a></td>
+    <td> <a href ="{% url 'updatecust' obj.id %}">Update</a></td>
+    
+  </tr>
+  
+  {% endfor %}
+</table>
+
+
+</form>
+
+{% endblock %}

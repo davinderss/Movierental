@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+
+{% block content %}
+
+<h1>Update Customer Information</h1>
+
+
+<form method="POST">
+  {%csrf_token %}
+  
+  {{customers.as_p}}
+
+  <input type="submit" value="Update"> 
+
+</form>
+
+{% endblock %}

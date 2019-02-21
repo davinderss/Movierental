@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+
+{% block content %}
+<div>
+<h1>List of all Availabe Movies</h1>
+
+
+<table style="width:100%">
+  <tr>
+    <th>Movie Name</th>
+    <th>Genre</th> 
+    <th>Year</th>
+    <th>Description</th>
+    <th>Price</th>
+    <th>Customer Name</th>
+    <th>Delete Movie</th>
+
+  </tr>
+  {% for movie in movies%}
+  <tr>
+    <td>{{movie.mname}}</td>
+    <td>{{movie.genre}}</td> 
+    <td>{{movie.year}}</td>
+    <td>{{movie.description}}</td>
+    <td>$ {{movie.price}}</td>
+     <td> {{movie.fname}}</td>
+    <td><a href ="{% url 'delmovie' movie.id %}">Delete Movie</a></td>
+
+
+  </tr>
+  {% endfor %}
+ 
+</table>
+
+
+</div>
+{% endblock %}

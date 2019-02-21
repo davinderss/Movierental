@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+
+{% block content %}
+<h1>Welcome to Movie Rental. Please login</h1>
+
+<form method="POST" action="{% url 'index' %}" > <!--  -->
+  {%csrf_token %}
+
+  {{form.as_p}}
+
+ <!--  {{form.username}}
+  {{form.password}} -->
+  <input type="submit" value="Login"> 
+  <!-- <input type="hidden" name="next" value="{{ next }}"> -->
+
+</form>
+ 
+{% endblock %}
