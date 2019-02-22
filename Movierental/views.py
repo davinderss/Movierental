@@ -43,12 +43,12 @@ def logout_view(request):
     logout(request)
     return render(request, 'index.html')
 
-#@login_required(login_url='index')
+@login_required(login_url='index')
 def homepage(request):
 	return render(request, 'homepage.html')
 
 
-#@login_required(login_url='index')
+@login_required(login_url='index')
 def addcust(request):
 	if request.method == 'POST':
 		form1= custform(request.POST)
@@ -71,7 +71,7 @@ def addcust(request):
 
 
 
-#@login_required(login_url='index')
+@login_required(login_url='index')
 def addmovies(request):
 	if request.method == 'POST':
 		form= movies(request.POST)
@@ -98,7 +98,7 @@ def addmovies(request):
 
 
 
-#@login_required(login_url='index')
+@login_required(login_url='index')
 def listofcustomers(request):
 
 	all_cust = cust.objects.all()
@@ -107,7 +107,7 @@ def listofcustomers(request):
 
 
 
-#@login_required(login_url='index')
+@login_required(login_url='index')
 def listofmovies(request):
 	all_movies = mmovies.objects.all()
 
@@ -117,11 +117,11 @@ def listofmovies(request):
 
 
 
-#@login_required(login_url='index')
+@login_required(login_url='index')
 def searchmovies(request):
 	return render(request, 'searchmovies.html')
 
-#@login_required(login_url='index')
+@login_required(login_url='index')
 def availablemovies(request):
 	return render(request, 'availablemovies.html')
 
@@ -180,7 +180,7 @@ def updatecust(request,id=None):
 	return render(request, 'updatecust.html',{"customers":form})
 	
 
-#@login_required(login_url='index')
+@login_required(login_url='index')
 def searchcust(request):
 
 	query = request.GET.get('q', '')
@@ -189,7 +189,7 @@ def searchcust(request):
 	return render(request,'searchcustomers.html', {'results': results})
 
 
-#@login_required(login_url='index')
+@login_required(login_url='index')
 def assignmovies(request):
 	listmovie =mmovies.objects.filter(fname=None)
 
@@ -210,7 +210,7 @@ def assignmovies(request):
 
 
 
-#@login_required(login_url='index')
+@login_required(login_url='index')
 def availablemovies(request):
 	all_movies = mmovies.objects.filter(fname=None)
 	return render(request, 'availablemovies.html',{"movies": all_movies})
@@ -232,7 +232,7 @@ class MovieList(APIView):
         serializer=MovieSerializer(movie, many=True)
         return Response(serializer.data)
 
-class CustomerList(APIView):
+class CustomerList(APIView):                                                   
 
     def get(self,request):
         customer=cust.objects.all()  
@@ -249,6 +249,7 @@ class CustList(APIView):
 class MoList(APIView):
 
     def get(self,request,id):
-        movie=mmovies.objects.filter(id=id) 
+        movie=
+        .objects.filter(id=id) 
         serializer=MovieSerializer(movie, many=True)
         return Response(serializer.data)
