@@ -249,7 +249,6 @@ class CustList(APIView):
 class MoList(APIView):
 
     def get(self,request,id):
-        movie=
-        .objects.filter(id=id) 
+        movie=mmovies.objects.filter(id=id) 
         serializer=MovieSerializer(movie, many=True)
         return Response(serializer.data)
