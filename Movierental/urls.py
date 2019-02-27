@@ -42,6 +42,7 @@ urlpatterns = [
     path("logout_view",views.logout_view, name="logout_view"),
     path("listofcustomers/delete/<int:id>",views.delcust,name="delcust"),
     path("listofmovies/delete/<int:id>",views.delmovie,name="delmovie"),
+    path("listofmovies/unasmovie/<int:id>",views.unasmovie,name="unasmovie"),
     path("listofcustomers/update/<int:id>/",views.updatecust,name="updatecust"),
     path("listofcustomers",views.searchcust,name="searchcust"),
     path("mjson/",MovieList.as_view(),name="mjson"),

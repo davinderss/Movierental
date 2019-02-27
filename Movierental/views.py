@@ -83,7 +83,7 @@ def addmovies(request):
 			description = form.cleaned_data["description"]
 			price= form.cleaned_data["price"]
 			fname=form.cleaned_data["fname"]
-			mov_info =movies(mname=mname,genre=genre,year=year,description=description,price=price,fname=fname)
+			mov_info =mmovies(mname=mname,genre=genre,year=year,description=description,price=price,fname=fname)
 			mov_info.save()
 			return redirect('listofmovies')
 	else:
@@ -141,6 +141,12 @@ def delmovie(request,id):
 
 	return redirect('listofmovies')
 
+def unasmovie(request,id):
+	#instance = 
+	mmovies.objects.filter(id=id).update(fname=None)
+	#instance.save()
+
+	return redirect('listofmovies')
 
 def updatecust(request,id=None):
 
